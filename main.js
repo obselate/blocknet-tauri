@@ -3578,6 +3578,14 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// --- Custom Titlebar Controls ---
+(function () {
+  var appWindow = window.__TAURI__.window.getCurrentWindow();
+  document.getElementById('titlebar-minimize').addEventListener('click', function () { appWindow.minimize(); });
+  document.getElementById('titlebar-maximize').addEventListener('click', function () { appWindow.toggleMaximize(); });
+  document.getElementById('titlebar-close').addEventListener('click', function () { appWindow.close(); });
+})();
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
 } else {
